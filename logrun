@@ -8,7 +8,6 @@ i=1                # Start counting arguments from 1 in Bash
 for arg in "$@"; do
     if [[ "$arg" == "--" ]]; then
         SEPARATOR_INDEX=$((i - 1)) # Separator is found at index i-1
-        break
     fi
     i=$((i + 1))
 done
