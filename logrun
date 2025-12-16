@@ -1,0 +1,12 @@
+  GNU nano 8.7                                                                 /usr/bin/logrun                                                                           
+#!/bin/bash
+
+ERROR=$(eval "$1" 2>&1 >/dev/null)
+errorCode=$?
+if [ $errorCode -ne 0 ]; then
+  logger "${@:2}" "$ERROR"
+  echo "$ERROR" >&2
+  exit $errorCode
+fi
+
+exit 0
